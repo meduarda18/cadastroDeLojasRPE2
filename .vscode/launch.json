@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-CadastrolojasrpeApplication<cadastrolojasrpe>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "br.com.rpe.lojas.cadastro.CadastrolojasrpeApplication",
+      "projectName": "cadastrolojasrpe",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
