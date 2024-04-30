@@ -46,7 +46,7 @@ API desenvolvida para facilitar o gerenciamento e manutenção de cadastros de l
 
 ## Como executar
 
-Para executar este projeto em seu ambiente local, siga estas etapas:
+Para executar este projeto em seu ambiente local, siga as seguintes etapas:
 
 ### Requisitos de Software:
 
@@ -67,7 +67,15 @@ Para executar este projeto em seu ambiente local, siga estas etapas:
 
 ### Execução do projeto
 
-* Navegue pelo seguinte caminho dentro do projeto src.main.java.br.com.rpe.lojas.cadastro e acesse a pasta CadastrolojasrpeApplication.java para executar o projeto.
+* Navegue pelo seguinte caminho dentro do projeto:
+
+  src.main.java.br.com.rpe.lojas.cadastro 
+ 
+  e acesse a pasta 
+ 
+  CadastrolojasrpeApplication.java 
+ 
+  para executar o projeto.
 
 ### Acesso a API
 
@@ -79,4 +87,10 @@ Para executar este projeto em seu ambiente local, siga estas etapas:
 
 ### Execução dos testes
 
-* Navegue pelo seguinte caminho dentro do projeto src.test.java.br.com.rpe.lojas.cadastro e acesse a pasta CadastrolojasrpeApplicationTests.java para executar os testes básicos.
+* Navegue pelo seguinte caminho dentro do projeto
+
+  src.test.java.br.com.rpe.lojas.cadastro
+
+  e acesse a pasta CadastrolojasrpeApplicationTests.java
+  
+  para executar os testes básicos.
