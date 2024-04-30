@@ -2,6 +2,7 @@ package br.com.rpe.lojas.cadastro.service;
 
 import br.com.rpe.lojas.cadastro.entity.LojaFisica;
 import br.com.rpe.lojas.cadastro.entity.LojaVirtual;
+
 import br.com.rpe.lojas.cadastro.repository.LojaFisicaRepository;
 import br.com.rpe.lojas.cadastro.repository.LojaVirtualRepository;
 
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 public class LojaService {
   private final LojaFisicaRepository lojaFisicaRepository;
   private final LojaVirtualRepository lojaVirtualRepository;
+
   
   public LojaService(LojaFisicaRepository lojaFisicaRepository, LojaVirtualRepository lojaVirtualRepository){
     this.lojaFisicaRepository = lojaFisicaRepository;
@@ -41,7 +43,7 @@ public class LojaService {
   }
 
   //buscar loja fisica por cnpj
-  public List<LojaFisica> buscarLojaFisicaCnpj(int cnpj){
+  public List<LojaFisica> buscarLojaFisicaCnpj(String cnpj){
     return lojaFisicaRepository.findAllByCnpj(cnpj);
   }
 
@@ -66,7 +68,7 @@ public class LojaService {
     lojaVirtualRepository.deleteById(id);
   }
 
-  public List<LojaVirtual> buscarLojaVirtualCnpj(int cnpj){
+  public List<LojaVirtual> buscarLojaVirtualCnpj(String cnpj){
     return lojaVirtualRepository.findAllByCnpj(cnpj);
   }
 

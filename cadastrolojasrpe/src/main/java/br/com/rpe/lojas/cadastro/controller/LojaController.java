@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import br.com.rpe.lojas.cadastro.entity.LojaFisica;
 import br.com.rpe.lojas.cadastro.entity.LojaVirtual;
 import br.com.rpe.lojas.cadastro.service.LojaService;
+import jakarta.validation.Valid;
 
 
 @RestController
@@ -24,7 +25,7 @@ public class LojaController {
   //loja Fisica
 
   @PostMapping("/fisicas")
-  public void criarLojaFisica(@RequestBody LojaFisica loja){
+  public void criarLojaFisica(@Valid @RequestBody LojaFisica loja){
     lojaService.criarLojaFisica(loja);
   }
 
@@ -34,12 +35,12 @@ public class LojaController {
   }
 
   @GetMapping("/fisicas/{cnpj}")
-  public List<LojaFisica> buscarLojaFisicaCnpj(@PathVariable("cnpj") int cnpj){
+  public List<LojaFisica> buscarLojaFisicaCnpj(@PathVariable("cnpj") String cnpj){
     return lojaService.buscarLojaFisicaCnpj(cnpj);
   }
 
   @PutMapping("/fisicas")
-  public void editarLojaFisica(@RequestBody LojaFisica loja){
+  public void editarLojaFisica(@Valid @RequestBody LojaFisica loja){
     lojaService.editarLojaFisica(loja);
   }
 
@@ -51,7 +52,7 @@ public class LojaController {
   //loja virtual
 
   @PostMapping("/virtuais")
-  public void criarLojaVirtual(@RequestBody LojaVirtual loja){
+  public void criarLojaVirtual(@Valid @RequestBody LojaVirtual loja){
     lojaService.criarLojaVirtual(loja);
   }
 
@@ -61,12 +62,12 @@ public class LojaController {
   }
 
   @GetMapping("/virtuais/{cnpj}")
-  public List<LojaVirtual> buscarLojaVirtualCnpj(@PathVariable("cnpj") int cnpj){
+  public List<LojaVirtual> buscarLojaVirtualCnpj(@PathVariable("cnpj") String cnpj){
     return lojaService.buscarLojaVirtualCnpj(cnpj);
   }
 
   @PutMapping("/virtuais")
-  public void editarLojaVirtual(@RequestBody LojaVirtual loja){
+  public void editarLojaVirtual(@Valid @RequestBody LojaVirtual loja){
     lojaService.editarLojaVirtual(loja);
   }
 
