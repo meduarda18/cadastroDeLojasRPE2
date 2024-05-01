@@ -11,22 +11,20 @@ import br.com.rpe.lojas.cadastro.entity.LojaVirtual;
 import br.com.rpe.lojas.cadastro.service.LojaService;
 import jakarta.validation.Valid;
 
-
 @RestController
 @RequestMapping("/lojas")
 public class LojaController {
   private final LojaService lojaService;
   
-
   public LojaController(LojaService lojaService){
     this.lojaService = lojaService;
   }
 
-  //loja Fisica
+  //lojas Fisicas
 
   @PostMapping("/fisicas")
   public void criarLojaFisica(@Valid @RequestBody LojaFisica loja){
-    lojaService.criarLojaFisica(loja);
+    lojaService.criarLoja(loja);
   }
 
   @GetMapping("/fisicas")
@@ -39,21 +37,21 @@ public class LojaController {
     return lojaService.buscarLojaFisicaCnpj(cnpj);
   }
 
-  @PutMapping("/fisicas")
-  public void editarLojaFisica(@Valid @RequestBody LojaFisica loja){
-    lojaService.editarLojaFisica(loja);
+  @PutMapping("/fisicas/editar/{id}")
+  public void editarLojaFisica(@PathVariable("id") UUID id, @Valid @RequestBody LojaFisica loja){
+    lojaService.editarLoja(id, loja, LojaFisica.class);
   }
 
-  @DeleteMapping("/fisicas/{id}")
+  @DeleteMapping("/fisicas/remover/{id}")
   public void removerLojaFisica(@PathVariable("id") UUID id){
-    lojaService.removerLojaFisica(id);
+    lojaService.removerLoja(id, LojaFisica.class);
   }
   
-  //loja virtual
+  //lojas virtuais
 
   @PostMapping("/virtuais")
   public void criarLojaVirtual(@Valid @RequestBody LojaVirtual loja){
-    lojaService.criarLojaVirtual(loja);
+    lojaService.criarLoja(loja);
   }
 
   @GetMapping("/virtuais")
@@ -66,16 +64,17 @@ public class LojaController {
     return lojaService.buscarLojaVirtualCnpj(cnpj);
   }
 
-  @PutMapping("/virtuais")
-  public void editarLojaVirtual(@Valid @RequestBody LojaVirtual loja){
-    lojaService.editarLojaVirtual(loja);
+  @PutMapping("/virtuais/editar/{id}")
+  public void editarLojaVirtual(@PathVariable("id") UUID id, @Valid @RequestBody LojaVirtual loja){
+    lojaService.editarLoja(id, loja, LojaVirtual.class);
   }
 
-  @DeleteMapping("/virtuais/{id}")
+  @DeleteMapping("/virtuais/remover/{id}")
   public void removerLojaVirtual(@PathVariable("id") UUID id){
-    lojaService.removerLojaVirtual(id);
+    lojaService.removerLoja(id, LojaVirtual.class);
   }
 
+  //Listas todas em /lojas
   @GetMapping
   public List<Object> listarTodasAsLojas() {
     List<LojaFisica> lojasFisicas = lojaService.listarLojasFisicas();

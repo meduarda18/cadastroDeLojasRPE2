@@ -5,16 +5,13 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
+
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
-
-import java.util.UUID;
-
 import org.hibernate.validator.constraints.URL;
 
+import java.util.UUID;
 
 @Entity
 @Table(name = "lojasVirtuais")
@@ -43,15 +40,12 @@ public class LojaVirtual {
   private String url;
 
   @NotEmpty
-  @Min(value = 0, message = "Avaliação deve ser igual ou maior que 0")
-  @Max(value = 10, message = "Avaliação deve ser igual ou menor que 10")
   private String avaliacao;
 
-  //construtor padrão
+  //construtor padrão para o hibernate
   public LojaVirtual(){}
 
   //construtor com argumentos
-  
   public LojaVirtual(UUID id, String cnpj, String nome, String segmento, String telefone, String url, String avaliacao){
     this.id = id;
     this.cnpj = cnpj;

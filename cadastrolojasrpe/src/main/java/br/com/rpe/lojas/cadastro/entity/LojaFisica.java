@@ -5,13 +5,13 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 import java.util.UUID;
-
 
 @Entity
 @Table(name = "lojasFisicas")
@@ -46,7 +46,6 @@ public class LojaFisica {
   public LojaFisica(){}
 
   //construtor com argumentos
-  
   public LojaFisica(UUID id, String cnpj, String nome, String segmento, String telefone, String enderecoFisico, int numeroFuncionarios){
     this.id = id;
     this.cnpj = cnpj;
@@ -61,7 +60,6 @@ public class LojaFisica {
   public UUID getId() {
     return id;
   }
-
 
   public String getCnpj() {
     return cnpj;

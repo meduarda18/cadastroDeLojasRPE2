@@ -16,15 +16,57 @@ public class LojaService {
   private final LojaFisicaRepository lojaFisicaRepository;
   private final LojaVirtualRepository lojaVirtualRepository;
 
-  
+  //construtor
   public LojaService(LojaFisicaRepository lojaFisicaRepository, LojaVirtualRepository lojaVirtualRepository){
     this.lojaFisicaRepository = lojaFisicaRepository;
     this.lojaVirtualRepository = lojaVirtualRepository;
   }
 
-  //criar loja fisica
-  public void criarLojaFisica(LojaFisica loja){
-    lojaFisicaRepository.save(loja);
+  public <T> void criarLoja(T loja) {
+    if (loja instanceof LojaFisica) {
+      lojaFisicaRepository.save((LojaFisica) loja);
+    } else if (loja instanceof LojaVirtual) {
+        lojaVirtualRepository.save((LojaVirtual) loja);
+    }
+  }
+
+  public <T> void editarLoja(UUID id, T loja, Class<?> tipoLoja) {
+    if (tipoLoja.equals(LojaFisica.class)) {
+      LojaFisica lojaExistente = lojaFisicaRepository.findById(id)
+      .orElseThrow(() -> new RuntimeException("Loja física não encontrada com ID: " + id));
+      // Atualizar os campos da loja existente com os valores da loja passada como parâmetro
+      LojaFisica lojaAtualizada = (LojaFisica) loja;
+
+      lojaExistente.setCnpj(lojaAtualizada.getCnpj());
+      lojaExistente.setNome(lojaAtualizada.getNome());
+      lojaExistente.setSegmento(lojaAtualizada.getSegmento());
+      lojaExistente.setTelefone(lojaAtualizada.getTelefone());
+      lojaExistente.setEnderecoFisico(lojaAtualizada.getEnderecoFisico());
+      lojaExistente.setNumeroFuncionarios(lojaAtualizada.getNumeroFuncionarios());
+
+      lojaFisicaRepository.save(lojaExistente);
+
+    } else if (tipoLoja.equals(LojaVirtual.class)) {
+        LojaVirtual lojaExistente = lojaVirtualRepository.findById(id)
+        .orElseThrow(() -> new RuntimeException("Loja virtual não encontrada com ID: " + id));
+        // Atualizar os campos da loja existente com os valores da loja passada como parâmetro
+        LojaVirtual lojaAtualizada = (LojaVirtual) loja;
+        lojaExistente.setCnpj(lojaAtualizada.getCnpj());
+        lojaExistente.setNome(lojaAtualizada.getNome());
+        lojaExistente.setSegmento(lojaAtualizada.getSegmento());
+        lojaExistente.setTelefone(lojaAtualizada.getTelefone());
+        lojaExistente.setUrl(lojaAtualizada.getUrl());
+        lojaExistente.setAvaliacao(lojaAtualizada.getAvaliacao());
+        lojaVirtualRepository.save(lojaExistente);
+    }
+}
+
+  public void removerLoja(UUID id, Class<?> tipoLoja) {
+    if (tipoLoja.equals(LojaFisica.class)) {
+      lojaFisicaRepository.deleteById(id);
+    } else if (tipoLoja.equals(LojaVirtual.class)) {
+        lojaVirtualRepository.deleteById(id);
+    }
   }
 
   //listar lojas fisicas existentes
@@ -32,25 +74,9 @@ public class LojaService {
     return lojaFisicaRepository.findAllByOrderByNomeAsc();
   }
 
-  //editar loja fisica
-  public void editarLojaFisica(LojaFisica loja){
-    lojaFisicaRepository.save(loja);
-  }
-
-  //remover loja fisica
-  public void removerLojaFisica(UUID id){
-    lojaFisicaRepository.deleteById(id);
-  }
-
   //buscar loja fisica por cnpj
   public List<LojaFisica> buscarLojaFisicaCnpj(String cnpj){
     return lojaFisicaRepository.findAllByCnpj(cnpj);
-  }
-
-
-  //criar loja virtual
-  public void criarLojaVirtual(LojaVirtual loja){
-    lojaVirtualRepository.save(loja);
   }
 
   //listar lojas virtuais existentes
@@ -58,16 +84,7 @@ public class LojaService {
     return lojaVirtualRepository.findAllByOrderByNomeAsc();
   }
 
-  //editar loja virtual
-  public void editarLojaVirtual(LojaVirtual loja){
-    lojaVirtualRepository.save(loja);
-  }
-
-  //remover loja virtual
-  public void removerLojaVirtual(UUID id){
-    lojaVirtualRepository.deleteById(id);
-  }
-
+  //buscar lojas virtuais por cnpj
   public List<LojaVirtual> buscarLojaVirtualCnpj(String cnpj){
     return lojaVirtualRepository.findAllByCnpj(cnpj);
   }

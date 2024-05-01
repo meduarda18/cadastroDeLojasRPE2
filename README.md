@@ -69,9 +69,9 @@ Para executar este projeto em seu ambiente local, siga as seguintes etapas:
 
 * Navegue pelo seguinte caminho dentro do projeto:
 
-  *src.main.java.br.com.rpe.lojas.cadastro* 
+  **src.main.java.br.com.rpe.lojas.cadastro**
  
-  e acesse a pasta *CadastrolojasrpeApplication.java* 
+  e acesse a pasta **CadastrolojasrpeApplication.java** 
  
   para executar o projeto.
 
@@ -87,8 +87,8 @@ Para executar este projeto em seu ambiente local, siga as seguintes etapas:
 
 * Navegue pelo seguinte caminho dentro do projeto
 
-  *src.test.java.br.com.rpe.lojas.cadastro*
+  **src.test.java.br.com.rpe.lojas.cadastro**
 
-  e acesse a pasta *CadastrolojasrpeApplicationTests.java*
+  e acesse a pasta **CadastrolojasrpeApplicationTests.java**
   
   para executar os testes básicos.
