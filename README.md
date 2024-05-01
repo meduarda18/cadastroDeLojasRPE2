@@ -10,6 +10,8 @@ API desenvolvida para facilitar o gerenciamento e manutenção de cadastros de l
 
 * MySQL
 
+*H2 Database (Para os testes automatizados)
+
 ## Tecnologias 
 
 * Maven;
@@ -23,8 +25,6 @@ API desenvolvida para facilitar o gerenciamento e manutenção de cadastros de l
 * Springdoc OpenAPI(Swagger);
 
 * Spring Boot Validation;
-
-* MySQL Connector.
 
 ## Práticas adotadas
 
