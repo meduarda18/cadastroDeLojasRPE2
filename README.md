@@ -51,6 +51,7 @@ Para executar este projeto em seu ambiente local, siga as seguintes etapas:
 ### Requisitos de Software:
 
 * Java 17 JDK instalado em sua máquina;
+
 * Maven para gerenciar as dependências.
 
 ### Clonar repositório:
