@@ -10,7 +10,7 @@ API desenvolvida para facilitar o gerenciamento e manutenção de cadastros de l
 
 * MySQL
 
-*H2 Database (Para os testes automatizados)
+* H2 Database (Para os testes automatizados)
 
 ## Tecnologias 
 
