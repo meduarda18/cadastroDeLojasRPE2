@@ -79,13 +79,17 @@ Para executar este projeto em seu ambiente local, siga as seguintes etapas:
 
 * http://localhost:8080/lojas
 
+* http://localhost:8080/lojas/fisicas
+
+* http://localhost:8080/lojas/virtuais
+
 ### Acesso a documentação da API(Swagger)
 
 * http://localhost:8080/swagger-ui.html
 
 ### Execução dos testes
 
-* Navegue pelo seguinte caminho dentro do projeto
+* Navegue pelo seguinte caminho dentro do projeto:
 
   **src.test.java.br.com.rpe.lojas.cadastro**
 
